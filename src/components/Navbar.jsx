@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 p-4">
     <ul className="flex justify-end space-x-8 ">
      <li className="mr-auto">
-      <Link to="/apod" className="text-white hover:text-gray-300">
+      <Link to="/" className="text-white hover:text-gray-300">
         Home Page
       </Link>
      </li>
@@ -25,8 +25,8 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <Link to="/insight" className="text-white hover:text-gray-300">
-          Insights
+        <Link to="/earth" className="text-white hover:text-gray-300">
+          Earth View
         </Link>
       </li>
       <li>
@@ -35,11 +35,7 @@ const Navbar = () => {
         </Link>
       </li>
       
-      <li>
-        <Link to="/wnts" className="text-white hover:text-gray-300">
-          Vesta/Moon/Mars Trek WMTS
-        </Link>
-      </li>
+     
     </ul>
   </nav>
    

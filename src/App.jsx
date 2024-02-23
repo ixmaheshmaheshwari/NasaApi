@@ -2,26 +2,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Apod from "./components/apod";
 import Navbar from "./components/Navbar";
 import Epic from './components/epic'
-import Insight from "./components/Insight";
+import Earth from "./components/Earth";
 import MarsRoverPhotos from './components/marsroverphotos'
-import Wmts from './components/wmts'
+import HomePage from "./components/HomePage";
 const App = () => {
   return (
+    <>
     <Router>
       <Routes>
-        <Route path="/" element={<Apod />} />
+        <Route path="/" element={<HomePage />} />
         {/* Define routes for each item in the Navbar */}
         <Route path="/apod" element={<Apod />} />
         
        
         <Route path="/epic" element={<Epic />} />
        
-        <Route path="/insight" element={<Insight />} />
+        <Route path="/earth" element={<Earth />} />
         <Route path="/mars" element={<MarsRoverPhotos />} />
        
-        <Route path="/wnts" element={<Wmts />} />
+        
       </Routes>
     </Router>
+    </>
   );
 };
 
