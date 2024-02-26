@@ -13,8 +13,10 @@ const Epic = () => {
   const [imageData, setImageData] = useState(null);
   const [enhancedData, setEnchancedData] = useState(null);
   const [apiKey, setApiKey] = useState(import.meta.env.VITE_SOME_KEY1);
-  const[naturalUrl]=useState(import.meta.env.VITE_NATURAL_URL);
-  const[enhancedUrl]=useState(import.meta.env.VITE_ENCHANED_URL)
+  const [naturalUrl] = useState(import.meta.env.VITE_NATURAL_URL);
+  const [enhancedUrl] = useState(import.meta.env.VITE_ENCHANED_URL);
+  const [naturalImage] = useState(import.meta.env.VITE_NATURAL_IMAGE);
+  const [enahcedImage] = useState(import.meta.env.VITE_ENHACED_IMAGE);
 
   async function fetchDataNaturalImage() {
     setIsLoading(true);
@@ -55,9 +57,9 @@ const Epic = () => {
       });
   }
   function formatDateFromIdentifier(identifier) {
-    // Extract the date part "20240218" from the identifier
+  
     const datePart = identifier.match(/\d{8}/)[0];
-    // Convert the date part into "2024/02/18" format
+    
     const formattedDate = `${datePart.substring(0, 4)}/${datePart.substring(
       4,
       6
@@ -66,7 +68,7 @@ const Epic = () => {
   }
 
   const naturalImages = () => {
-    // Example usage
+   
     return (
       <div className="flex flex-col items-center mt-50">
         <h1 className="text-3xl font-bold mb-4">Natural Images</h1>
@@ -75,7 +77,8 @@ const Epic = () => {
           {imageData.map((image) => (
             <div className="bg-white rounded-lg shadow-lg overflow-hidden m-2">
               <ProgressiveImage
-                src={`https://api.nasa.gov/EPIC/archive/natural/${formatDateFromIdentifier(
+                delay={1000}
+                src={`${naturalImage}${formatDateFromIdentifier(
                   image.identifier
                 )}/png/${image.image}.png?api_key=${apiKey}`}
                 placeholder={loader}
@@ -106,7 +109,7 @@ const Epic = () => {
     );
   };
   const enhancedImages = () => {
-    // Example usage
+    
     return (
       <div className="flex flex-col items-center mt-50">
         <h1 className="text-3xl font-bold mb-4">Enhanced Images</h1>
@@ -117,8 +120,8 @@ const Epic = () => {
               key={image.identifier}
             >
               <ProgressiveImage
-                delay={3000}
-                src={`https://api.nasa.gov/EPIC/archive/enhanced/${formatDateFromIdentifier(
+                delay={1000}
+                src={`${enahcedImage}${formatDateFromIdentifier(
                   image.identifier
                 )}/png/${image.image}.png?api_key=${apiKey}`}
                 placeholder={loader}
